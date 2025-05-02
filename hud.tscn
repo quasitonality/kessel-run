@@ -1,0 +1,123 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5dj11145w3oh"]
+
+[ext_resource type="Script" path="res://HUD.gd" id="1_nudsx"]
+[ext_resource type="FontFile" uid="uid://chcw4yxofyjdi" path="res://assets/fonts/Square.ttf" id="2_i5r2l"]
+
+[sub_resource type="Theme" id="Theme_t218u"]
+default_font = ExtResource("2_i5r2l")
+default_font_size = 48
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_nudsx")
+
+[node name="Fuel" type="Label" parent="."]
+offset_left = 39.0
+offset_top = 40.0
+offset_right = 496.0
+offset_bottom = 124.0
+theme_override_fonts/font = ExtResource("2_i5r2l")
+theme_override_font_sizes/font_size = 64
+text = "Fuel: "
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.502
+anchor_top = 0.433
+anchor_right = 0.502
+anchor_bottom = 0.433
+offset_left = -336.84
+offset_top = -127.64
+offset_right = 337.16
+offset_bottom = 0.359955
+theme_override_fonts/font = ExtResource("2_i5r2l")
+theme_override_font_sizes/font_size = 111
+text = "Title"
+horizontal_alignment = 1
+
+[node name="Message" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.451
+anchor_right = 0.5
+anchor_bottom = 0.451
+offset_left = -243.0
+offset_top = -0.0800476
+offset_right = 252.0
+offset_bottom = 68.92
+theme_override_fonts/font = ExtResource("2_i5r2l")
+theme_override_font_sizes/font_size = 41
+text = "message"
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 0.5
+anchor_right = 0.504
+anchor_bottom = 0.5
+offset_left = -198.68
+offset_top = 18.0
+offset_right = 200.32
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("2_i5r2l")
+theme_override_font_sizes/font_size = 71
+text = "Start"
+
+[node name="Reset" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -127.0
+offset_right = 241.0
+offset_bottom = -34.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_i5r2l")
+theme_override_font_sizes/font_size = 51
+text = "Reset"
+
+[node name="Quit" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -239.0
+offset_top = 34.0
+offset_right = -38.0
+offset_bottom = 127.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_i5r2l")
+theme_override_font_sizes/font_size = 51
+text = "Quit"
+
+[node name="ScoreBoard" type="GridContainer" parent="."]
+anchors_preset = -1
+anchor_top = 0.475
+anchor_bottom = 0.475
+offset_left = 43.0
+offset_top = -321.0
+offset_right = 710.0
+offset_bottom = 322.0
+theme = SubResource("Theme_t218u")
+theme_override_constants/h_separation = 18
+theme_override_constants/v_separation = 18
+columns = 2
+
+[node name="Label" type="Label" parent="ScoreBoard"]
+layout_mode = 2
+text = "Example Statistic:"
+
+[node name="Label2" type="Label" parent="ScoreBoard"]
+layout_mode = 2
+text = "500"
+
+[node name="Label3" type="Label" parent="ScoreBoard"]
+layout_mode = 2
+text = "Another One:"
+
+[node name="Label4" type="Label" parent="ScoreBoard"]
+layout_mode = 2
+text = "1800"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

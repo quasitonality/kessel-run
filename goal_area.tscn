@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://27avwqasikdm"]
+
+[ext_resource type="Script" path="res://GoalArea.gd" id="1_rebcf"]
+[ext_resource type="FontFile" uid="uid://chcw4yxofyjdi" path="res://assets/fonts/Square.ttf" id="2_aneoh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vr5mc"]
+size = Vector2(619, 294)
+
+[node name="GoalArea" type="ColorRect"]
+offset_right = 354.0
+offset_bottom = 197.0
+script = ExtResource("1_rebcf")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="." groups=["goal"]]
+position = Vector2(177, 98.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_vr5mc")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -15.0
+offset_right = 20.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_aneoh")
+theme_override_font_sizes/font_size = 76
+text = "Goal"
+horizontal_alignment = 1
+vertical_alignment = 1

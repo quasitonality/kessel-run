@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://du0gjtlgmcioc"]
+
+[ext_resource type="FontFile" uid="uid://chcw4yxofyjdi" path="res://assets/fonts/Square.ttf" id="1_644xc"]
+[ext_resource type="FontFile" uid="uid://cxsprdv0o4lu8" path="res://assets/fonts/GAME_glm.ttf" id="2_bkwlm"]
+
+[sub_resource type="Theme" id="Theme_uvrmv"]
+default_font = ExtResource("1_644xc")
+default_font_size = 32
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/CenterContainer"]
+layout_mode = 2
+theme = SubResource("Theme_uvrmv")
+
+[node name="Title" type="Label" parent="CanvasLayer2/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bkwlm")
+theme_override_font_sizes/font_size = 206
+text = "Kessel Run"
+
+[node name="Credits" type="VBoxContainer" parent="CanvasLayer2/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 69
+
+[node name="Label" type="Label" parent="CanvasLayer2/CenterContainer/VBoxContainer/Credits"]
+layout_mode = 2
+text = "Developed by Michael Johnson"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer2/CenterContainer/VBoxContainer/Credits"]
+layout_mode = 2
+text = "Music from Pixabay
+dopestuff
+Oleksii Holubiev"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer2/CenterContainer/VBoxContainer/Credits"]
+layout_mode = 2
+text = "Sound Effects from Zapsplat.com"
+horizontal_alignment = 1
+
+[node name="Prompt" type="Label" parent="CanvasLayer2"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -178.0
+offset_top = -172.0
+offset_right = 178.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_644xc")
+theme_override_font_sizes/font_size = 51
+text = "Press Any Key"
+horizontal_alignment = 1

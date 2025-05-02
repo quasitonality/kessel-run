@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://duro35x4i1dy5"]
+
+[ext_resource type="Texture2D" uid="uid://bslctc6qeadp2" path="res://assets/images/star-field-2294797_1280.webp" id="1_qwgiw"]
+
+[node name="Backdrop" type="CanvasLayer"]
+layer = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -31.0
+offset_top = -61.0
+offset_right = 1945.0
+offset_bottom = 1174.0
+texture = ExtResource("1_qwgiw")

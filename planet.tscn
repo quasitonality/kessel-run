@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://crxmjm051ykgx"]
+
+[ext_resource type="Script" path="res://planet.gd" id="1_5r0uo"]
+[ext_resource type="Texture2D" uid="uid://cf1q3a8xnmx0p" path="res://assets/images/planet/planet.png" id="1_7f53e"]
+[ext_resource type="PackedScene" uid="uid://dymnnungwx0io" path="res://gravity_well.tscn" id="2_wau75"]
+[ext_resource type="Script" path="res://Surface.gd" id="3_c5028"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tpn1w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7f53e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vf5mv"]
+radius = 55.3263
+
+[node name="Planet" type="Node2D"]
+script = ExtResource("1_5r0uo")
+metadata/_edit_group_ = true
+
+[node name="GravityWell" parent="." instance=ExtResource("2_wau75")]
+visible = false
+
+[node name="Surface" type="Area2D" parent="." groups=["obstacle"]]
+scale = Vector2(0.661417, 0.661417)
+script = ExtResource("3_c5028")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Surface"]
+scale = Vector2(0.24, 0.24)
+sprite_frames = SubResource("SpriteFrames_tpn1w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Surface"]
+visible = false
+shape = SubResource("CircleShape2D_vf5mv")

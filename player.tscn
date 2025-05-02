@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwx4vml6j47u3"]
+
+[ext_resource type="Texture2D" uid="uid://dgd081w5yeqfi" path="res://assets/images/player/player-burn-0.png" id="1_purs3"]
+[ext_resource type="Script" path="res://player.gd" id="1_spfeh"]
+[ext_resource type="Texture2D" uid="uid://jamm3rigxcib" path="res://assets/images/player/player-idle-0.png" id="2_ivy5m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcdgg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_purs3")
+}],
+"loop": true,
+"name": &"burn",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ivy5m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ej8xt"]
+radius = 618.098
+
+[node name="Player" type="Area2D" groups=["player"]]
+collision_mask = 6
+script = ExtResource("1_spfeh")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_qcdgg")
+animation = &"idle"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-17, 9, 0, -24, 17, 9)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
+
+[node name="VisitArea" type="Area2D" parent="."]
+
+[node name="VisitRadius" type="CollisionShape2D" parent="VisitArea"]
+shape = SubResource("CircleShape2D_ej8xt")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="VisitArea" to="." method="_on_visit_area_area_entered"]
